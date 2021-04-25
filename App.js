@@ -31,7 +31,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Main"
-        screenOptions={{ title: false }}
+        screenOptions={{ title: false, headerLeft: null }}
       >
         <Stack.Screen name="Main" component={Main} options={{ headerTransparent: true }} />
         <Stack.Screen name="Intro" component={Intro} options={{ headerTransparent: true }} />
