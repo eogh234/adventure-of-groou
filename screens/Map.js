@@ -24,7 +24,7 @@ const Map = () => {
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
                     activeOpacity={0.5}
-                // onPress={() => {navigation.navigate('Sky_Intro')}}
+                    onPress={() => { navigation.navigate('Sky_Intro') }}
                 >
                     <Image
                         style={styles.touchpoint}
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         width: wp('30%'),
         height: hp('20%')
     },
-    headerContainer:{
+    headerContainer: {
         width: wp('80%'),
         height: hp('10%'),
         flexDirection: 'row',
