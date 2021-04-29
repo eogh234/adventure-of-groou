@@ -70,7 +70,7 @@ const Sky_Quiz1 = () => {
                             </View>
                         }
                         <View style={styles.draggableContainer}>
-                            {isDropped && draggable == 'TREE' ? <View style={styles.receiver}/> : <DraxView
+                            {isDropped && draggable == 'TREE' ? <View style={styles.receiver} /> : <DraxView
                                 style={styles.draggableTree}
                                 onDragStart={() => {
                                     setDraggable('TREE');
@@ -79,7 +79,7 @@ const Sky_Quiz1 = () => {
                             >
                                 <ImageBackground style={styles.draggableImage} source={require('../assets/icons/tree_icon.png')} />
                             </DraxView>}
-                            {isDropped && draggable == 'CAR' ? <View style={styles.carEmptyContainer}/> : <DraxView
+                            {isDropped && draggable == 'CAR' ? <View style={styles.carEmptyContainer} /> : <DraxView
                                 style={styles.draggableCar}
                                 onDragStart={() => {
                                     setDraggable('CAR');
@@ -88,7 +88,7 @@ const Sky_Quiz1 = () => {
                             >
                                 <ImageBackground style={styles.draggableImage} source={require('../assets/icons/car_icon.png')} />
                             </DraxView>}
-                            {isDropped && draggable == 'FACTORY' ? <View style={styles.factoryEmptyContainer}/> : <DraxView
+                            {isDropped && draggable == 'FACTORY' ? <View style={styles.factoryEmptyContainer} /> : <DraxView
                                 style={styles.draggableFactory}
                                 onDragStart={() => {
                                     setDraggable('FACTORY');
@@ -111,8 +111,7 @@ const Sky_Quiz1 = () => {
                         <CustomButton
                             src={require('../assets/buttons/next_button_enabled.png')}
                             target={() => {
-                                // navigation.navigate('Sky_Result1');
-                                isCorrect ? console.log("정답!") : console.log("오답!!")
+                                isCorrect ? navigation.navigate('Sky_Result1') : console.log("오답!!")
                             }}
                         /> :
                         <CustomButton
