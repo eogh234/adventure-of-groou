@@ -5,6 +5,7 @@ import CustomButton from "../components/CustomButton";
 import IconButton from "../components/IconButton";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 import SkyContentBackground from "../components/SkyContentBackground";
+import LottieView from 'lottie-react-native';
 
 const Sky_Content = () => {
     const navigation = useNavigation();
@@ -13,22 +14,15 @@ const Sky_Content = () => {
     const textUrl = [
         {
             url: require('../assets/texts/sky_content_0.png'),
-            textStyle: {
-            }
+            textStyle: styles.textImage1
         },
         {
             url: require('../assets/texts/sky_content_1.png'),
-            textStyle: {
-                width: wp('70%'),
-                height: hp('12%')
-            }
+            textStyle: styles.textImage2
         },
         {
             url: require('../assets/texts/sky_content_2.png'),
-            textStyle: {
-                width: wp('70%'),
-                height: hp('12%')
-            }
+            textStyle: styles.textImage3
         }
     ];
 
@@ -38,10 +32,16 @@ const Sky_Content = () => {
                 <SkyContentBackground />
             </View>
             <View style={styles.textContatiner}>
-                <Image style={styles.textImage} source={textUrl[text].url} />
+                <Image style={textUrl[text].textStyle} source={textUrl[text].url} />
             </View>
             <View style={styles.nestedContainer}>
-                <ImageBackground style={styles.nestedImage} source={require('../assets/backgrounds/sky_content_nested_background.png')} />
+                {/* <LottieView
+                    style={styles.nestedImage} 
+                    source={require('../assets/json/sky_dust.json')} 
+                    autoPlay={true}
+                    loop={true}
+                /> */}
+                <ImageBackground style={styles.nestedImage} source={require('../assets/json/sky_dust.gif')}/>
             </View>
             <View style={styles.buttonContainer}>
                 <View style={styles.iconButtonContainer}>
@@ -79,25 +79,30 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     textContatiner: {
-        marginTop: hp('15%')
+        width: wp('70%'),
+        marginTop: hp('15%'),
     },
-    textImage: {
-        width: wp('75%'),
+    textImage1: {
+        width: wp('60%'),
+        height: hp('10%')
+    },
+    textImage2: {
+        width: wp('55%'),
+        height: hp('13%')
+    },
+    textImage3: {
+        width: wp('40%'),
         height: hp('10%')
     },
     nestedContainer: {
         width: wp('80%'),
         height: hp('50%'),
-        marginTop: hp('5%'),
         alignItems: 'center',
         justifyContent: 'center',
     },
     nestedImage: {
         width: wp('75%'),
-        height: hp('43%'),
-        alignItems: 'center',
-        justifyContent: 'center',
-        resizeMode: 'contain'
+        height: hp('50%'),
     },
     buttonContainer: {
         width: wp('80%'),

@@ -9,7 +9,10 @@ import Forest_Quiz from './screens/Forest_Quiz';
 import Forest_Result from './screens/Forest_Result';
 import Intro from './screens/Intro';
 import Main from './screens/Main';
-import Map from './screens/Map';
+import Sky_Map from './screens/Sky_Map';
+import Forest_Map from './screens/Forest_Map';
+import Water_Map from './screens/Water_Map';
+import Final_Map from './screens/Final_Map';
 import Sky_Content from './screens/Sky_Content';
 import Sky_Final from './screens/Sky_Final';
 import Sky_Intro from './screens/Sky_Intro';
@@ -35,7 +38,10 @@ export default function App() {
       >
         <Stack.Screen name="Main" component={Main} options={{ headerTransparent: true }} />
         <Stack.Screen name="Intro" component={Intro} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Map" component={Map} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Sky_Map" component={Sky_Map} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Forest_Map" component={Forest_Map} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Water_Map" component={Water_Map} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Final_Map" component={Final_Map} options={{ headerTransparent: true }} />
 
         <Stack.Screen name="Sky_Intro" component={Sky_Intro} options={{ headerTransparent: true }} />
         <Stack.Screen name="Sky_Content" component={Sky_Content} options={{ headerTransparent: true }} />

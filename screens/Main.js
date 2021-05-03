@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/core";
+import LottieView from 'lottie-react-native';
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import IconButton from "../components/IconButton";
-import MainBackground from "../components/MainBackground";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 
 const Main = () => {
@@ -15,7 +15,12 @@ const Main = () => {
                 onPress={() => { navigation.navigate('Intro') }}
                 activeOpacity={1}
             >
-                <MainBackground />
+                <LottieView
+                    style={styles.backgroundImage}
+                    source={require('../assets/json/main_background.json')}
+                    autoPlay={true}
+                    loop={true}
+                />
             </TouchableOpacity>
             <View style={styles.homeButton}>
                 <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
@@ -26,8 +31,7 @@ const Main = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: wp('100%'),
-        height: hp('100%'),
+        flex: 1
     },
     backgroundContainer: {
         position: 'absolute',
@@ -35,6 +39,9 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+    },
+    backgroundImage: {
+        flex: 1,
     },
     homeButton: {
         width: wp('13%'),

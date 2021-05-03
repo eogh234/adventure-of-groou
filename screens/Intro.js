@@ -16,7 +16,7 @@ const Intro = () => {
             <View style={styles.buttonContainer}>
                 <CustomButton
                     src={require('../assets/buttons/good_button.png')}
-                    target={() => { navigation.navigate('Map') }}
+                    target={() => { navigation.navigate('Sky_Map')}}
                 />
             </View>
         </View>

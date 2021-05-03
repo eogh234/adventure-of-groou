@@ -126,7 +126,7 @@ export default function SkyResult1Background() {
     </clipPath>
     <image id="image0" width="38" height="27" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAbCAYAAAAQ2f3dAAABjklEQVRYCc2XsU7DMBCGw8DSiZGVFbHzBLwBQx+BkbEjIyNj2RhRFwbbSH2B+CiREN1ZO2aq1LtKyOiCIgWaJr7ESRopSmLf+f/uovxyIrWBZ03gDuVUCN8G4Sp6cR8nCuOvQwHTaO+j/DBbe8mkQ8MpAvvokuOcK7sy6aBgaNdz93n2B4ofmJSJh4JT27ebHah8gIk12nXvcAiznGHvlcl7BcN4xR/gXqDihEaY9QWXWUNRvOqeK9AYr7qGM7h4qOIoneNKOgVDWO5YQylJySBX1BEcaXq/KJH0G+KKNMIyOBzCrR9BRRRXFtJCDMG8Qk42FcxC0KbGLU5l6jXRXGnbV6oIrmtk5NNcaSsLQZjKVT0zmloIb6uUS0aeMs3CNMJU+EqJt1XN1ARZXLnEQgzBRLB8u9DMQgiornO8jXLOHbVTE2ZzJyrB0KalGz+hjjicO1FjIWPxoqESfi3Epv87p8g+hdJovI4mGBfBerEGX1ruEMNl/4R9WIM3mEtGWac29s43p7e4V4LzkGI/npQbkCL7qSkAAAAASUVORK5CYII="/>
     </defs>
-    </svg>              
+    </svg>                  
     `
 
     const SkyResult1BackgroundSvg = () => <SvgXml xml={background} style={styles.container} width={wp('100%')} height={hp('100%')} />;
