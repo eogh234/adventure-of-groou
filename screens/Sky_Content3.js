@@ -4,43 +4,18 @@ import { Image, ImageBackground, StyleSheet, ToastAndroid, View } from "react-na
 import CustomButton from "../components/CustomButton";
 import IconButton from "../components/IconButton";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
-import SkyContentBackground from "../components/SkyContentBackground";
+import SkyContent3Background from "../components/SkyContent3Background";
 import LottieView from 'lottie-react-native';
 
 const Sky_Content = () => {
     const navigation = useNavigation();
-    const [text, setText] = useState(0);
-
-    const textUrl = [
-        {
-            url: require('../assets/texts/sky_content_0.png'),
-            textStyle: styles.textImage1
-        },
-        {
-            url: require('../assets/texts/sky_content_1.png'),
-            textStyle: styles.textImage2
-        },
-        {
-            url: require('../assets/texts/sky_content_2.png'),
-            textStyle: styles.textImage3
-        }
-    ];
 
     return (
         <View style={styles.container}>
             <View style={styles.backgroundContainer}>
-                <SkyContentBackground />
-            </View>
-            <View style={styles.textContatiner}>
-                <Image style={textUrl[text].textStyle} source={textUrl[text].url} />
+                <SkyContent3Background />
             </View>
             <View style={styles.nestedContainer}>
-                {/* <LottieView
-                    style={styles.nestedImage} 
-                    source={require('../assets/json/sky_dust.json')} 
-                    autoPlay={true}
-                    loop={true}
-                /> */}
                 <ImageBackground style={styles.nestedImage} source={require('../assets/json/sky_dust.gif')}/>
             </View>
             <View style={styles.buttonContainer}>
@@ -52,11 +27,7 @@ const Sky_Content = () => {
                     <CustomButton
                         src={require('../assets/buttons/next_button_enabled.png')}
                         target={() => {
-                            if (text < 2) {
-                                setText(text + 1);
-                            } else {
-                                navigation.navigate('Sky_Quiz1');
-                            }
+                            navigation.navigate('Sky_Quiz1')
                         }}
                     />
                 </View>
@@ -78,27 +49,12 @@ const styles = StyleSheet.create({
         right: 0,
         bottom: 0,
     },
-    textContatiner: {
-        width: wp('70%'),
-        marginTop: hp('15%'),
-    },
-    textImage1: {
-        width: wp('60%'),
-        height: hp('10%')
-    },
-    textImage2: {
-        width: wp('55%'),
-        height: hp('13%')
-    },
-    textImage3: {
-        width: wp('40%'),
-        height: hp('10%')
-    },
     nestedContainer: {
         width: wp('80%'),
         height: hp('50%'),
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: hp('25%')
     },
     nestedImage: {
         width: wp('75%'),

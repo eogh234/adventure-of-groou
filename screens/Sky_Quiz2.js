@@ -1,10 +1,12 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
-import { ImageBackground, StyleSheet, ToastAndroid, TouchableOpacity, View } from "react-native";
+import { Image, ImageBackground, Modal, StyleSheet, ToastAndroid, TouchableOpacity, View } from "react-native";
 import CustomButton from "../components/CustomButton";
+import ExitButton from "../components/ExitButton";
 import IconButton from "../components/IconButton";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 import SkyQuiz2Background from "../components/SkyQuiz2Background";
+import LottieView from 'lottie-react-native';
 
 const Sky_Quiz2 = () => {
     const navigation = useNavigation();
@@ -13,34 +15,64 @@ const Sky_Quiz2 = () => {
     const [isBlack, setIsBlack] = useState(false);
     const [isBlue, setIsBlue] = useState(false);
     const [isGray, setIsGray] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <View style={styles.container}>
+            <Modal
+                style={styles.modal}
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                }}>
+                <View style={styles.modalBackgroundContainer}>
+                    <View style={styles.modalHeaderContainer}>
+                        <ExitButton
+                            src={require('../assets/icons/modal_exit.png')}
+                            target={() => { setModalVisible(false) }} />
+                    </View>
+                    <View style={styles.textContainer}>
+                        <Image style={styles.modalText} source={require('../assets/texts/retry_text.png')} />
+                    </View>
+                    <View style={styles.modalContent}>
+                        <LottieView
+                            style={styles.modalImage}
+                            source={require('../assets/json/popup.json')}
+                            autoPlay={true}
+                            loop={false}
+                        />
+                    </View>
+                    <View style={styles.modalButtonContainer}>
+                        <CustomButton
+                            src={require('../assets/buttons/retry_button.png')}
+                            target={() => { setModalVisible(false) }}
+                        />
+                    </View>
+                </View>
+            </Modal>
             <View style={styles.backgroundContainer}>
                 <SkyQuiz2Background />
             </View>
             <View style={styles.nestedContainer}>
                 <ImageBackground style={styles.nestedImage} source={require('../assets/backgrounds/sky_quiz2_nested_background.png')}>
-                    <View sytle={styles.colorContainer}>
-                        <View sytle={styles.blueGrayContainer}>
-                            <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => { setSelect('blue') }} onPressIn={() => { setIsBlue(true) }} onPressOut={() => { setIsBlue(false) }}>
-                                <ImageBackground style={isBlue ? styles.colorBlue_pressed : styles.colorBlue} source={require('../assets/icons/color_blue.png')} />
-                            </TouchableOpacity>
-                            <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => { setSelect('gray') }} onPressIn={() => { setIsGray(true) }} onPressOut={() => { setIsGray(false) }}>
-                                <ImageBackground style={isGray ? styles.colorGray_pressed : styles.colorGray} source={require('../assets/icons/color_gray.png')} />
-                            </TouchableOpacity>
-                        </View>
+                    <View style={styles.blueGrayContainer}>
+                        <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => { setSelect('blue') }} onPressIn={() => { setIsBlue(true) }} onPressOut={() => { setIsBlue(false) }}>
+                            <ImageBackground style={isBlue ? styles.colorBlue_pressed : styles.colorBlue} source={select == 'blue' ? require('../assets/icons/color_blue_selected.png') : require('../assets/icons/color_blue.png')} />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => { setSelect('gray') }} onPressIn={() => { setIsGray(true) }} onPressOut={() => { setIsGray(false) }}>
+                            <ImageBackground style={isGray ? styles.colorGray_pressed : styles.colorGray} source={select == 'gray' ? require('../assets/icons/color_gray_selected.png') : require('../assets/icons/color_gray.png')} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.blackContainer}>
                         <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={() => { setSelect('black') }} onPressIn={() => { setIsBlack(true) }} onPressOut={() => { setIsBlack(false) }}>
-                            <ImageBackground style={isBlack ? styles.colorBlack_pressed : styles.colorBlack} source={require('../assets/icons/color_black.png')} />
+                            <ImageBackground style={isBlack ? styles.colorBlack_pressed : styles.colorBlack} source={select == 'black' ? require('../assets/icons/color_black_selected.png') : require('../assets/icons/color_black.png')} />
                         </TouchableOpacity>
                     </View>
                 </ImageBackground>
             </View>
             <View style={styles.buttonContainer}>
-                <View style={styles.iconButtonContainer}>
-                    <IconButton src={require('../assets/buttons/back_button.png')} target={() => { console.log("BACK!!") }} />
-                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
-                </View>
                 <View style={styles.nextButtonContainer}>
                     <CustomButton
                         src={select ? require('../assets/buttons/next_button_enabled.png') : require('../assets/buttons/next_button_disabled.png')}
@@ -48,7 +80,7 @@ const Sky_Quiz2 = () => {
                             if (!select) {
                                 ToastAndroid.show('색을 선택해주세요!', ToastAndroid.SHORT);
                             } else if (select != 'blue') {
-                                console.log('POP UP');
+                                setModalVisible(true);
                             } else {
                                 navigation.navigate('Sky_Result2');
                             }
@@ -66,6 +98,37 @@ const styles = StyleSheet.create({
         height: hp('100%'),
         alignItems: 'center',
     },
+    modalHeaderContainer: {
+        width: wp('55%'),
+        alignItems: 'flex-end'
+    },
+    modalBackgroundContainer: {
+        width: wp('55%'),
+        height: hp('60%'),
+        backgroundColor: 'white',
+        marginLeft: wp('25%'),
+        marginTop: hp('25%'),
+        borderRadius: 45
+    },
+    textContainer: {
+        width: wp('55%'),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: hp('-5%')
+    },
+    modalImage: {
+        width: wp('40%'),
+        height: hp('80%'),
+        marginTop: hp('-15%'),
+        marginLeft: wp('-3%')
+    },
+    modalText: {
+        width: wp('40%'),
+        resizeMode: 'contain'
+    },
+    modalButtonContainer: {
+        marginTop: hp('-45%')
+    },
     backgroundContainer: {
         position: 'absolute',
         top: 0,
@@ -81,16 +144,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('72.2%'),
+        width: wp('73%'),
         height: hp('42.2%'),
         alignItems: 'center',
+        justifyContent: 'center',
         resizeMode: 'contain',
     },
-    colorContainer: {
-
-    },
     blueGrayContainer: {
-
+        flexDirection: 'row',
+        marginTop: hp('8%')
+    },
+    blackContainer: {
     },
     button: {
         alignItems: 'center',
@@ -99,11 +163,12 @@ const styles = StyleSheet.create({
     colorBlack: {
         width: wp('21%'),
         height: hp('10%'),
+        marginTop: hp('3%')
     },
     colorBlue: {
         width: wp('21%'),
         height: hp('10%'),
-        marginTop: hp('10%')
+        marginRight: wp('8%')
     },
     colorGray: {
         width: wp('21%'),
@@ -112,11 +177,12 @@ const styles = StyleSheet.create({
     colorBlack_pressed: {
         width: wp('18%'),
         height: hp('9%'),
+        marginTop: hp('3%')
     },
     colorBlue_pressed: {
         width: wp('18%'),
         height: hp('9%'),
-        marginTop: hp('10%')
+        marginRight: wp('8%')
     },
     colorGray_pressed: {
         width: wp('18%'),
@@ -127,11 +193,6 @@ const styles = StyleSheet.create({
         height: hp('10%'),
         flexDirection: 'row',
         justifyContent: 'flex-end'
-    },
-    iconButtonContainer: {
-        width: wp('40%'),
-        height: hp('10%'),
-        flexDirection: 'row'
     },
     nextButtonContainer: {
         width: wp('35%'),

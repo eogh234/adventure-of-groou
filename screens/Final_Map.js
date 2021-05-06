@@ -11,27 +11,20 @@ const Final_Map = (props) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.backgroundContainer}>
-                <FinalMapBackground />
-            </View>
-            <View style={styles.headerContainer}>
-                <View style={styles.homeButton}>
-                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
+            <TouchableOpacity
+                style={styles.backgroundContainer}
+                onPress={() => { navigation.navigate('Final') }}
+                activeOpacity={1}>
+                <View style={styles.backgroundContainer}>
+                    <FinalMapBackground />
                 </View>
-            </View>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    activeOpacity={0.5}
-                    onPress={() => { navigation.navigate('Sky_Intro') }}
-                >
-                    <LottieView
-                        style={styles.touchpoint}
-                        source={require('../assets/json/touchpoint.json')}
-                        autoPlay={true}
-                        loop={true}
-                    />
-                </TouchableOpacity>
-            </View>
+                <View style={styles.buttonContainer}>
+                    <View style={styles.iconButtonContainer}>
+                        <IconButton src={require('../assets/buttons/back_button.png')} target={() => { console.log("BACK!!") }} />
+                        <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
+                    </View>
+                </View>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -50,25 +43,20 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     buttonContainer: {
-        width: wp('30%'),
+        width: wp('100%'),
         height: hp('20%'),
-        marginTop: hp('10%'),
-        marginRight: wp('25%')
+        marginTop: hp('85%'),
+        alignItems: 'flex-end'
     },
     touchpoint: {
         width: wp('30%'),
         height: hp('20%'),
         opacity: 0.9,
     },
-    headerContainer: {
-        width: wp('80%'),
+    iconButtonContainer: {
+        width: wp('40%'),
         height: hp('10%'),
-        justifyContent: 'flex-end',
-        marginTop: hp('3%'),
-    },
-    homeButton: {
-        width: wp('13%'),
-        height: hp('10%')
+        flexDirection: 'row'
     },
 })
 

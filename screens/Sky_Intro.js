@@ -19,7 +19,7 @@ const Sky_Intro = () => {
                     <View style={styles.zoomContainer}>
                         <CustomButton 
                             src={require('../assets/icons/zoom_icon.png')}
-                            target={() => {navigation.navigate('Sky_Content')}}
+                            target={() => {navigation.navigate('Sky_Content1')}}
                         />
                     </View>
                 </ImageBackground>
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('75%'),
-        height: hp('43%'),
+        width: wp('68%'),
+        height: hp('39.2%'),
         alignItems: 'center',
         justifyContent: 'center',
         resizeMode: 'contain'

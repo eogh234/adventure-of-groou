@@ -1,11 +1,13 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
-import { ImageBackground, StyleSheet, ToastAndroid, View } from "react-native";
+import { Image, ImageBackground, Modal, StyleSheet, ToastAndroid, View } from "react-native";
 import { DraxProvider, DraxView } from "react-native-drax";
 import CustomButton from "../components/CustomButton";
 import IconButton from "../components/IconButton";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 import SkyQuiz1Background from "../components/SkyQuiz1Background";
+import LottieView from 'lottie-react-native';
+import ExitButton from "../components/ExitButton";
 
 const Sky_Quiz1 = () => {
     const navigation = useNavigation();
@@ -14,9 +16,43 @@ const Sky_Quiz1 = () => {
     const [isHover, setIsHover] = useState(false);
     const [isDropped, setIsDropped] = useState(false);
     const [draggable, setDraggable] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <View style={styles.container}>
+            <Modal
+                style={styles.modal}
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                }}>
+                <View style={styles.modalBackgroundContainer}>
+                    <View style={styles.modalHeaderContainer}>
+                        <ExitButton
+                            src={require('../assets/icons/modal_exit.png')}
+                            target={() => { setModalVisible(false) }} />
+                    </View>
+                    <View style={styles.textContainer}>
+                        <Image style={styles.modalText} source={require('../assets/texts/retry_text.png')} />
+                    </View>
+                    <View style={styles.modalContent}>
+                        <LottieView
+                            style={styles.modalImage}
+                            source={require('../assets/json/popup.json')}
+                            autoPlay={true}
+                            loop={false}
+                        />
+                    </View>
+                    <View style={styles.modalButtonContainer}>
+                        <CustomButton
+                            src={require('../assets/buttons/retry_button.png')}
+                            target={() => { setModalVisible(false) }}
+                        />
+                    </View>
+                </View>
+            </Modal>
             <View style={styles.backgroundContainer}>
                 <SkyQuiz1Background />
             </View>
@@ -26,6 +62,7 @@ const Sky_Quiz1 = () => {
             <View style={styles.nestedContainer}>
                 <DraxProvider>
                     <ImageBackground style={styles.nestedImage} source={require('../assets/backgrounds/sky_quiz1_nested_background.png')}>
+                        <ImageBackground style={styles.iconArea} source={require('../assets/icons/sky_quiz1_area.gif')}/>
                         {isHover ?
                             <View style={styles.receiverContainer_hover}>
                                 <DraxView
@@ -111,7 +148,7 @@ const Sky_Quiz1 = () => {
                         <CustomButton
                             src={require('../assets/buttons/next_button_enabled.png')}
                             target={() => {
-                                isCorrect ? navigation.navigate('Sky_Result1') : console.log("오답!!")
+                                isCorrect ? navigation.navigate('Sky_Result1') : setModalVisible(true)
                             }}
                         /> :
                         <CustomButton
@@ -131,6 +168,37 @@ const styles = StyleSheet.create({
         height: hp('100%'),
         alignItems: 'center',
     },
+    modalHeaderContainer: {
+        width: wp('55%'),
+        alignItems: 'flex-end'
+    },
+    modalBackgroundContainer: {
+        width: wp('55%'),
+        height: hp('60%'),
+        backgroundColor: 'white',
+        marginLeft: wp('25%'),
+        marginTop: hp('25%'),
+        borderRadius: 45
+    },
+    textContainer: {
+        width: wp('55%'),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: hp('-5%')
+    },
+    modalImage: {
+        width: wp('40%'),
+        height: hp('80%'),
+        marginTop: hp('-15%'),
+        marginLeft: wp('-3%')
+    },
+    modalText: {
+        width: wp('40%'),
+        resizeMode: 'contain'
+    },
+    modalButtonContainer: {
+        marginTop: hp('-45%')
+    },
     backgroundContainer: {
         position: 'absolute',
         top: 0,
@@ -148,22 +216,22 @@ const styles = StyleSheet.create({
     nestedContainer: {
         width: wp('80%'),
         height: hp('50%'),
-        marginTop: hp('30%'),
+        marginTop: hp('35%'),
         alignItems: 'center',
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('75%'),
-        height: hp('45%'),
+        width: wp('78%'),
+        height: hp('46%'),
         alignItems: 'center',
         justifyContent: 'center',
         resizeMode: 'contain',
     },
     draggableContainer: {
         width: wp('80%'),
-        height: hp('20%'),
+        height: hp('40%'),
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     factoryContainer: {
         width: wp('80%'),
@@ -172,39 +240,35 @@ const styles = StyleSheet.create({
     },
     draggableTree: {
         width: wp('22%'),
-        height: hp('15%'),
+        height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: hp('5%')
     },
     draggableCar: {
         width: wp('22%'),
-        height: hp('15%'),
+        height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginHorizontal: wp('5%'),
-        marginBottom: hp('5%')
+        marginHorizontal: wp('2%'),
+        marginTop: hp('-5%')
     },
     draggableFactory: {
         width: wp('22%'),
-        height: hp('15%'),
+        height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: hp('5%')
     },
     receiverContainer: {
         width: wp('75%'),
         height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: hp('6%')
     },
     receiverContainer_hover: {
         width: wp('75%'),
         height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: hp('6%'),
         opacity: 0.5
     },
     receiver: {
@@ -212,6 +276,7 @@ const styles = StyleSheet.create({
         height: hp('16%'),
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: hp('26%'),
     },
     carEmptyContainer: {
         width: wp('28%'),
@@ -221,12 +286,6 @@ const styles = StyleSheet.create({
     },
     factoryEmptyContainer: {
         width: wp('20%'),
-        height: hp('16%'),
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    receiver: {
-        width: wp('26%'),
         height: hp('16%'),
         alignItems: 'center',
         justifyContent: 'center',
@@ -242,7 +301,6 @@ const styles = StyleSheet.create({
     buttonContainer: {
         width: wp('80%'),
         height: hp('10%'),
-        marginTop: hp('5%'),
         flexDirection: 'row',
         justifyContent: 'space-around'
     },
@@ -255,6 +313,11 @@ const styles = StyleSheet.create({
         width: wp('20%'),
         height: hp('10%')
     },
+    iconArea: {
+        width: wp('25%'),
+        height: hp('15%'),
+        marginTop: hp('25%'),
+    }
 })
 
 export default Sky_Quiz1;

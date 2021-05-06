@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import LottieView from 'lottie-react-native';
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { ImageBackground, StyleSheet, TouchableOpacity, View } from "react-native";
 import IconButton from "../components/IconButton";
 import WaterMapBackground from "../components/WaterMapBackground";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
@@ -12,17 +12,12 @@ const Final_Map = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.backgroundContainer}>
-                <WaterMapBackground/>
-            </View>
-            <View style={styles.headerContainer}>
-                <View style={styles.homeButton}>
-                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
-                </View>
+                <WaterMapBackground />
             </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
                     activeOpacity={0.5}
-                    onPress={() => { navigation.navigate('Sky_Intro') }}
+                    onPress={() => { navigation.navigate('Water_Content') }}
                 >
                     <LottieView
                         style={styles.touchpoint}
@@ -31,6 +26,12 @@ const Final_Map = (props) => {
                         loop={true}
                     />
                 </TouchableOpacity>
+            </View>
+            <View style={styles.headerContainer}>
+                <View style={styles.iconButtonContainer}>
+                    <IconButton src={require('../assets/buttons/back_button.png')} target={() => { console.log("BACK!!") }} />
+                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
+                </View>
             </View>
         </View>
     );
@@ -51,24 +52,25 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         width: wp('30%'),
-        height: hp('20%'),
-        marginTop: hp('10%'),
+        height: hp('15%'),
+        marginTop: hp('70%'),
         marginRight: wp('25%')
     },
     touchpoint: {
-        width: wp('30%'),
+        width: wp('30.9%'),
         height: hp('20%'),
-        opacity: 0.9,
+        opacity: 0.8,
     },
     headerContainer: {
-        width: wp('80%'),
+        width: wp('100%'),
         height: hp('10%'),
+        flexDirection: 'row',
         justifyContent: 'flex-end',
-        marginTop: hp('3%'),
     },
-    homeButton: {
-        width: wp('13%'),
-        height: hp('10%')
+    iconButtonContainer: {
+        width: wp('40%'),
+        height: hp('10%'),
+        flexDirection: 'row', 
     },
 })
 

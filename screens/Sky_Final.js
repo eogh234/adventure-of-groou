@@ -15,13 +15,8 @@ const Sky_Final = () => {
             <View style={styles.backgroundContainer}>
                 <SkyFinalBackground />
             </View>
-            <View style={styles.headerContainer}>
-                <View style={styles.homeButton}>
-                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
-                </View>
-            </View>
             <View style={styles.nestedContainer}>
-                <ImageBackground style={styles.nestedImage} source={require('../assets/backgrounds/sky_final_nested_background.png')}/>
+                <ImageBackground style={styles.nestedImage} source={require('../assets/backgrounds/sky_final_nested_background.png')} />
             </View>
             <View style={styles.buttonContainer}>
                 <View style={styles.nextButtonContainer}>
@@ -34,6 +29,11 @@ const Sky_Final = () => {
                     src={require('../assets/buttons/next_area_button_disabled.png')}
                     target={() => { ToastAndroid.show("SKIP", ToastAndroid.SHORT) }}
                 />
+                <View style={styles.headerContainer}>
+                    <View style={styles.homeButton}>
+                        <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
+                    </View>
+                </View>
             </View>
         </View>
     );
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         width: wp('80%'),
         height: hp('10%'),
         alignItems: 'flex-end',
-        marginBottom: hp('20%')
+        marginBottom: hp('5%')
     },
     homeButton: {
         width: wp('13%'),
@@ -68,10 +68,10 @@ const styles = StyleSheet.create({
         height: hp('35%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: hp('5%')
+        marginTop: hp('25%')
     },
     nestedImage: {
-        width: wp('53%'),
+        width: wp('53.8%'),
         height: hp('35%'),
     },
     buttonContainer: {
@@ -79,6 +79,8 @@ const styles = StyleSheet.create({
         height: hp('20%'),
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: hp('10%'),
+        paddingVertical: hp('8%')
     },
     nextButtonContainer: {
         paddingLeft: wp('2%'),

@@ -6,7 +6,7 @@ import IconButton from "../components/IconButton";
 import ForestMapBackground from "../components/ForestMapBackground";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 
-const Forest_Map = (props) => {
+const Forest_Map = () => {
     const navigation = useNavigation();
 
     return (
@@ -14,24 +14,24 @@ const Forest_Map = (props) => {
             <View style={styles.backgroundContainer}>
                 <ForestMapBackground />
             </View>
-            <View style={styles.headerContainer}>
-                <View style={styles.homeButton}>
-                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
-                </View>
-            </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
                     activeOpacity={0.5}
-                    onPress={() => { navigation.navigate('Forest_Content') }}
+                    onPress={() => { navigation.navigate('Forest_Intro1') }}
                 >
-                    {/* <LottieView
+                    <LottieView
                         style={styles.touchpoint}
                         source={require('../assets/json/touchpoint.json')}
                         autoPlay={true}
                         loop={true}
-                    /> */}
-                    <ImageBackground style={styles.touchpoint} source={require('../assets/json/touchpoint.gif')}/>
+                    />
                 </TouchableOpacity>
+            </View>
+            <View style={styles.headerContainer}>
+                <View style={styles.iconButtonContainer}>
+                    <IconButton src={require('../assets/buttons/back_button.png')} target={() => { console.log("BACK!!") }} />
+                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
+                </View>
             </View>
         </View>
     );
@@ -53,23 +53,25 @@ const styles = StyleSheet.create({
     buttonContainer: {
         width: wp('30%'),
         height: hp('20%'),
-        marginTop: hp('32%'),
+        marginTop: hp('45%'),
         marginLeft: wp('30%')
     },
     touchpoint: {
-        width: wp('30%'),
+        width: wp('30.9%'),
         height: hp('20%'),
         opacity: 0.8,
     },
     headerContainer: {
-        width: wp('80%'),
+        width: wp('100%'),
         height: hp('10%'),
-        justifyContent: 'flex-end',
-        marginTop: hp('3%'),
+        marginTop: hp('20%'),
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
     },
-    homeButton: {
-        width: wp('13%'),
-        height: hp('10%')
+    iconButtonContainer: {
+        width: wp('40%'),
+        height: hp('10%'),
+        flexDirection: 'row'
     },
 })
 
