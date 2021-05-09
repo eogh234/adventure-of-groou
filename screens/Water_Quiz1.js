@@ -7,6 +7,7 @@ import ExitButton from "../components/ExitButton";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 import WaterQuiz1Background from "../components/WaterQuiz1Background";
 import LottieView from 'lottie-react-native';
+import IconButton from "../components/IconButton";
 
 const Water_Quiz1 = () => {
     const navigation = useNavigation();
@@ -14,6 +15,7 @@ const Water_Quiz1 = () => {
     const [isPositivePress, setIsPositivePress] = useState(false);
     const [isNegativePress, setIsNegativePress] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
+    const [exitModalVisible, setExitModalVisible] = useState(false);
 
     return (
         <View style={styles.container}>
@@ -50,6 +52,41 @@ const Water_Quiz1 = () => {
                     </View>
                 </View>
             </Modal>
+            <Modal
+                style={styles.modal}
+                animationType="fade"
+                transparent={true}
+                visible={exitModalVisible}
+            >
+                <View style={styles.exitModalBackgroundContainer}>
+                    <View style={styles.exitModalHeaderContainer}>
+                        <ExitButton
+                            src={require('../assets/icons/modal_exit.png')}
+                            target={() => { setExitModalVisible(false) }} />
+                    </View>
+                    <View style={styles.exitTextContainer}>
+                        <Image style={styles.modalText} source={require('../assets/texts/exit_text.png')} />
+                    </View>
+                    <View style={styles.exitModalContent}>
+                        <Image
+                            style={styles.exitModalImage}
+                            source={require('../assets/backgrounds/modal_nested_background.png')}
+                        />
+                    </View>
+                    <View style={styles.exitModalButtonContainer}>
+                        <CustomButton
+                            style={styles.exitButton}
+                            src={require('../assets/buttons/exit_button.png')}
+                            target={() => { setExitModalVisible(false); navigation.navigate("OnBoarding") }}
+                        />
+                        <CustomButton
+                            style={styles.continueButton}
+                            src={require('../assets/buttons/continue_button.png')}
+                            target={() => { setExitModalVisible(false) }}
+                        />
+                    </View>
+                </View>
+            </Modal>
             <View style={styles.backgroundContainer}>
                 <WaterQuiz1Background />
             </View>
@@ -62,6 +99,10 @@ const Water_Quiz1 = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.buttonContainer}>
+                <View style={styles.iconButtonContainer}>
+                    <IconButton src={require('../assets/buttons/back_button.png')} target={() => { navigation.goBack() }} />
+                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { setExitModalVisible(true) }} />
+                </View>
                 <CustomButton
                     src={isSelected ? require('../assets/buttons/next_button_enabled.png') : require('../assets/buttons/next_button_disabled.png')}
                     target={() => { isSelected == 'negative' ? navigation.navigate('Water_Result1') : setModalVisible(true) }}
@@ -109,6 +150,40 @@ const styles = StyleSheet.create({
     modalButtonContainer: {
         marginTop: hp('-45%')
     },
+    exitModalHeaderContainer: {
+        width: wp('55%'),
+        alignItems: 'flex-end',
+        marginBottom: hp('12%')
+    },
+    exitModalBackgroundContainer: {
+        width: wp('55%'),
+        height: hp('70%'),
+        backgroundColor: 'white',
+        marginLeft: wp('25%'),
+        marginTop: hp('15%'),
+        borderRadius: 45,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    exitTextContainer: {
+        width: wp('55%'),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: hp('-15%')
+    },
+    exitModalImage: {
+        width: wp('42.3%'),
+        height: hp('27.5%'),
+        marginTop: hp('-5%')
+    },
+    exitModalText: {
+        width: wp('40%'),
+        resizeMode: 'contain'
+    },
+    exitModalButtonContainer: {
+        width: wp('30%'),
+        height: hp('20%'),
+    },
     backgroundContainer: {
         position: 'absolute',
         top: 0,
@@ -140,7 +215,12 @@ const styles = StyleSheet.create({
         height: hp('10%'),
         marginTop: hp('15%'),
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-evenly'
+    },
+    iconButtonContainer: {
+        width: wp('40%'),
+        height: hp('10%'),
+        flexDirection: 'row'
     },
     nextButtonContainer: {
         width: wp('30%'),

@@ -39,10 +39,12 @@ const Main = () => {
                     </View>
                     <View style={styles.modalButtonContainer}>
                         <CustomButton
+                            style={styles.exitButton}
                             src={require('../assets/buttons/exit_button.png')}
-                            target={() => { setModalVisible(false); navigation.navigate("Main") }}
+                            target={() => { setModalVisible(false); navigation.navigate("OnBoarding") }}
                         />
                         <CustomButton
+                            style={styles.continueButton}
                             src={require('../assets/buttons/continue_button.png')}
                             target={() => { setModalVisible(false) }}
                         />
@@ -85,34 +87,37 @@ const styles = StyleSheet.create({
     },
     modalHeaderContainer: {
         width: wp('55%'),
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+        marginBottom: hp('12%')
     },
     modalBackgroundContainer: {
         width: wp('55%'),
-        height: hp('60%'),
+        height: hp('70%'),
         backgroundColor: 'white',
         marginLeft: wp('25%'),
-        marginTop: hp('25%'),
-        borderRadius: 45
+        marginTop: hp('15%'),
+        borderRadius: 45,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     textContainer: {
         width: wp('55%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: hp('-10%')
+        marginTop: hp('-15%')
     },
     modalImage: {
         width: wp('42.3%'),
         height: hp('27.5%'),
-        marginLeft: wp('7%'),
-        marginTop: hp('-3%')
+        marginTop: hp('-5%')
     },
     modalText: {
         width: wp('40%'),
         resizeMode: 'contain'
     },
     modalButtonContainer: {
-        justifyContent: 'flex-start',
+        width: wp('30%'),
+        height: hp('20%'),
     },
     backgroundImage: {
         flex: 1,
@@ -121,7 +126,7 @@ const styles = StyleSheet.create({
         width: wp('13%'),
         height: hp('10%'),
         marginTop: hp('85%'),
-        marginLeft: wp('75%'),
+        marginLeft: wp('70%'),
     }
 })
 

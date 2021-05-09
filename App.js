@@ -11,6 +11,10 @@ import Forest_Quiz from './screens/Forest_Quiz';
 import Forest_Result from './screens/Forest_Result';
 import Intro from './screens/Intro';
 import Main from './screens/Main';
+import OnBoarding from './screens/OnBoarding';
+import PrologueVideo from './screens/PrologueVideo';
+import EpilogueVideo from './screens/EpilogueVideo';
+import ProductionIntro from './screens/ProductionIntro';
 import Sky_Map from './screens/Sky_Map';
 import Forest_Map from './screens/Forest_Map';
 import Water_Map from './screens/Water_Map';
@@ -37,9 +41,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Main"
+        initialRouteName="OnBoarding"
         screenOptions={{ title: false, headerLeft: null }}
       >
+        <Stack.Screen name="OnBoarding" component={OnBoarding} options={{ headerTransparent: true }} />
+        <Stack.Screen name="PrologueVideo" component={PrologueVideo} options={{ headerTransparent: true }} />
+        <Stack.Screen name="EpilogueVideo" component={EpilogueVideo} options={{ headerTransparent: true }} />
+        <Stack.Screen name="ProductionIntro" component={ProductionIntro} options={{ headerTransparent: true }} />
         <Stack.Screen name="Main" component={Main} options={{ headerTransparent: true }} />
         <Stack.Screen name="Intro" component={Intro} options={{ headerTransparent: true }} />
         <Stack.Screen name="Sky_Map" component={Sky_Map} options={{ headerTransparent: true }} />

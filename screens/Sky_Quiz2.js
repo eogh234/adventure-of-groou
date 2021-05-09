@@ -1,12 +1,11 @@
 import { useNavigation } from "@react-navigation/core";
+import LottieView from 'lottie-react-native';
 import React, { useState } from "react";
 import { Image, ImageBackground, Modal, StyleSheet, ToastAndroid, TouchableOpacity, View } from "react-native";
 import CustomButton from "../components/CustomButton";
 import ExitButton from "../components/ExitButton";
-import IconButton from "../components/IconButton";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 import SkyQuiz2Background from "../components/SkyQuiz2Background";
-import LottieView from 'lottie-react-native';
 
 const Sky_Quiz2 = () => {
     const navigation = useNavigation();
@@ -144,8 +143,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('73%'),
-        height: hp('42.2%'),
+        width: wp('75%'),
+        height: hp('43.3%'),
         alignItems: 'center',
         justifyContent: 'center',
         resizeMode: 'contain',
@@ -192,7 +191,8 @@ const styles = StyleSheet.create({
         width: wp('80%'),
         height: hp('10%'),
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        marginTop: hp('5%')
     },
     nextButtonContainer: {
         width: wp('35%'),

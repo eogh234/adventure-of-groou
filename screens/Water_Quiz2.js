@@ -17,6 +17,7 @@ const Water_Quiz2 = () => {
     const [isDropped, setIsDropped] = useState(false);
     const [draggable, setDraggable] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
+    const [exitModalVisible, setExitModalVisible] = useState(false);
 
     return (
         <View style={styles.container}>
@@ -49,6 +50,41 @@ const Water_Quiz2 = () => {
                         <CustomButton
                             src={require('../assets/buttons/retry_button.png')}
                             target={() => { setModalVisible(false) }}
+                        />
+                    </View>
+                </View>
+            </Modal>
+            <Modal
+                style={styles.modal}
+                animationType="fade"
+                transparent={true}
+                visible={exitModalVisible}
+            >
+                <View style={styles.exitModalBackgroundContainer}>
+                    <View style={styles.exitModalHeaderContainer}>
+                        <ExitButton
+                            src={require('../assets/icons/modal_exit.png')}
+                            target={() => { setExitModalVisible(false) }} />
+                    </View>
+                    <View style={styles.exitTextContainer}>
+                        <Image style={styles.modalText} source={require('../assets/texts/exit_text.png')} />
+                    </View>
+                    <View style={styles.exitModalContent}>
+                        <Image
+                            style={styles.exitModalImage}
+                            source={require('../assets/backgrounds/modal_nested_background.png')}
+                        />
+                    </View>
+                    <View style={styles.exitModalButtonContainer}>
+                        <CustomButton
+                            style={styles.exitButton}
+                            src={require('../assets/buttons/exit_button.png')}
+                            target={() => { setExitModalVisible(false); navigation.navigate("OnBoarding") }}
+                        />
+                        <CustomButton
+                            style={styles.continueButton}
+                            src={require('../assets/buttons/continue_button.png')}
+                            target={() => { setExitModalVisible(false) }}
                         />
                     </View>
                 </View>
@@ -124,7 +160,7 @@ const Water_Quiz2 = () => {
             <View style={styles.buttonContainer}>
                 <View style={styles.iconButtonContainer}>
                     <IconButton src={require('../assets/buttons/back_button.png')} target={() => { navigation.goBack(); }} />
-                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
+                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { setExitModalVisible(true) }} />
                 </View>
                 <View style={styles.nextButtonContainer}>
                     {isDropped ?
@@ -181,6 +217,40 @@ const styles = StyleSheet.create({
     },
     modalButtonContainer: {
         marginTop: hp('-45%')
+    },
+    exitModalHeaderContainer: {
+        width: wp('55%'),
+        alignItems: 'flex-end',
+        marginBottom: hp('12%')
+    },
+    exitModalBackgroundContainer: {
+        width: wp('55%'),
+        height: hp('70%'),
+        backgroundColor: 'white',
+        marginLeft: wp('25%'),
+        marginTop: hp('15%'),
+        borderRadius: 45,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    exitTextContainer: {
+        width: wp('55%'),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: hp('-15%')
+    },
+    exitModalImage: {
+        width: wp('42.3%'),
+        height: hp('27.5%'),
+        marginTop: hp('-5%')
+    },
+    exitModalText: {
+        width: wp('40%'),
+        resizeMode: 'contain'
+    },
+    exitModalButtonContainer: {
+        width: wp('30%'),
+        height: hp('20%'),
     },
     backgroundContainer: {
         position: 'absolute',

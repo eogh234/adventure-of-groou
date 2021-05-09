@@ -17,6 +17,7 @@ const Sky_Quiz1 = () => {
     const [isDropped, setIsDropped] = useState(false);
     const [draggable, setDraggable] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
+    const [exitModalVisible, setExitModalVisible] = useState(false);
 
     return (
         <View style={styles.container}>
@@ -49,6 +50,41 @@ const Sky_Quiz1 = () => {
                         <CustomButton
                             src={require('../assets/buttons/retry_button.png')}
                             target={() => { setModalVisible(false) }}
+                        />
+                    </View>
+                </View>
+            </Modal>
+            <Modal
+                style={styles.modal}
+                animationType="fade"
+                transparent={true}
+                visible={exitModalVisible}
+            >
+                <View style={styles.exitModalBackgroundContainer}>
+                    <View style={styles.exitModalHeaderContainer}>
+                        <ExitButton
+                            src={require('../assets/icons/modal_exit.png')}
+                            target={() => { setExitModalVisible(false) }} />
+                    </View>
+                    <View style={styles.exitTextContainer}>
+                        <Image style={styles.modalText} source={require('../assets/texts/exit_text.png')} />
+                    </View>
+                    <View style={styles.exitModalContent}>
+                        <Image
+                            style={styles.exitModalImage}
+                            source={require('../assets/backgrounds/modal_nested_background.png')}
+                        />
+                    </View>
+                    <View style={styles.exitModalButtonContainer}>
+                        <CustomButton
+                            style={styles.exitButton}
+                            src={require('../assets/buttons/exit_button.png')}
+                            target={() => { setExitModalVisible(false); navigation.navigate("OnBoarding") }}
+                        />
+                        <CustomButton
+                            style={styles.continueButton}
+                            src={require('../assets/buttons/continue_button.png')}
+                            target={() => { setExitModalVisible(false) }}
                         />
                     </View>
                 </View>
@@ -141,7 +177,7 @@ const Sky_Quiz1 = () => {
             <View style={styles.buttonContainer}>
                 <View style={styles.iconButtonContainer}>
                     <IconButton src={require('../assets/buttons/back_button.png')} target={() => { navigation.goBack(); }} />
-                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { console.log("POP UP!!") }} />
+                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { setExitModalVisible(true) }} />
                 </View>
                 <View style={styles.nextButtonContainer}>
                     {isDropped ?
@@ -199,6 +235,40 @@ const styles = StyleSheet.create({
     modalButtonContainer: {
         marginTop: hp('-45%')
     },
+    exitModalHeaderContainer: {
+        width: wp('55%'),
+        alignItems: 'flex-end',
+        marginBottom: hp('12%')
+    },
+    exitModalBackgroundContainer: {
+        width: wp('55%'),
+        height: hp('70%'),
+        backgroundColor: 'white',
+        marginLeft: wp('25%'),
+        marginTop: hp('15%'),
+        borderRadius: 45,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    exitTextContainer: {
+        width: wp('55%'),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: hp('-15%')
+    },
+    exitModalImage: {
+        width: wp('42.3%'),
+        height: hp('27.5%'),
+        marginTop: hp('-5%')
+    },
+    exitModalText: {
+        width: wp('40%'),
+        resizeMode: 'contain'
+    },
+    exitModalButtonContainer: {
+        width: wp('30%'),
+        height: hp('20%'),
+    },
     backgroundContainer: {
         position: 'absolute',
         top: 0,
@@ -221,8 +291,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('78%'),
-        height: hp('46%'),
+        width: wp('70%'),
+        height: hp('41.1%'),
         alignItems: 'center',
         justifyContent: 'center',
         resizeMode: 'contain',
@@ -239,24 +309,25 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     draggableTree: {
-        width: wp('22%'),
+        width: wp('25%'),
         height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: hp('-3%')
     },
     draggableCar: {
         width: wp('22%'),
         height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginHorizontal: wp('2%'),
-        marginTop: hp('-5%')
+        marginTop: hp('-8%')
     },
     draggableFactory: {
-        width: wp('22%'),
+        width: wp('25%'),
         height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: hp('-3%')
     },
     receiverContainer: {
         width: wp('75%'),
@@ -276,7 +347,7 @@ const styles = StyleSheet.create({
         height: hp('16%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: hp('26%'),
+        marginBottom: hp('25%'),
     },
     carEmptyContainer: {
         width: wp('28%'),
@@ -316,7 +387,7 @@ const styles = StyleSheet.create({
     iconArea: {
         width: wp('25%'),
         height: hp('15%'),
-        marginTop: hp('25%'),
+        marginTop: hp('30%'),
     }
 })
 
