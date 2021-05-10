@@ -1,13 +1,12 @@
 import { useNavigation } from "@react-navigation/core";
 import LottieView from 'lottie-react-native';
-import React from "react";
+import React, { useState } from "react";
 import { Image, Modal, StyleSheet, TouchableOpacity, View } from "react-native";
 import IconButton from "../components/IconButton";
 import FinalMapBackground from "../components/FinalMapBackground";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../components/Responsive";
 import ExitButton from "../components/ExitButton";
 import CustomButton from "../components/CustomButton";
-import { useState } from "react/cjs/react.development";
 
 const Final_Map = (props) => {
     const navigation = useNavigation();

@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
-import React from "react";
+import React, { useState } from "react";
 import { Image, ImageBackground, Modal, StyleSheet, ToastAndroid, View } from "react-native";
-import { useState } from "react/cjs/react.development";
 import CustomButton from "../components/CustomButton";
 import ExitButton from "../components/ExitButton";
 import IconButton from "../components/IconButton";

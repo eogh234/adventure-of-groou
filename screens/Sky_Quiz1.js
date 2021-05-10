@@ -98,7 +98,7 @@ const Sky_Quiz1 = () => {
             <View style={styles.nestedContainer}>
                 <DraxProvider>
                     <ImageBackground style={styles.nestedImage} source={require('../assets/backgrounds/sky_quiz1_nested_background.png')}>
-                        <ImageBackground style={styles.iconArea} source={require('../assets/icons/sky_quiz1_area.gif')}/>
+                        <ImageBackground style={styles.iconArea} source={require('../assets/icons/sky_quiz1_area.gif')} />
                         {isHover ?
                             <View style={styles.receiverContainer_hover}>
                                 <DraxView
@@ -184,7 +184,9 @@ const Sky_Quiz1 = () => {
                         <CustomButton
                             src={require('../assets/buttons/next_button_enabled.png')}
                             target={() => {
-                                isCorrect ? navigation.navigate('Sky_Result1') : setModalVisible(true)
+                                isCorrect ?
+                                    navigation.navigate('Sky_Result1') :
+                                    setModalVisible(true)
                             }}
                         /> :
                         <CustomButton

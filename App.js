@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Final from './screens/Final';
@@ -44,42 +44,42 @@ export default function App() {
         initialRouteName="OnBoarding"
         screenOptions={{ title: false, headerLeft: null }}
       >
-        <Stack.Screen name="OnBoarding" component={OnBoarding} options={{ headerTransparent: true }} />
-        <Stack.Screen name="PrologueVideo" component={PrologueVideo} options={{ headerTransparent: true }} />
-        <Stack.Screen name="EpilogueVideo" component={EpilogueVideo} options={{ headerTransparent: true }} />
-        <Stack.Screen name="ProductionIntro" component={ProductionIntro} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Main" component={Main} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Intro" component={Intro} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Map" component={Sky_Map} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Forest_Map" component={Forest_Map} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Water_Map" component={Water_Map} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Final_Map" component={Final_Map} options={{ headerTransparent: true }} />
+        <Stack.Screen name="OnBoarding" component={OnBoarding} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="PrologueVideo" component={PrologueVideo} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="EpilogueVideo" component={EpilogueVideo} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="ProductionIntro" component={ProductionIntro} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Main" component={Main} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Intro" component={Intro} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Sky_Map" component={Sky_Map} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Forest_Map" component={Forest_Map} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Water_Map" component={Water_Map} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Final_Map" component={Final_Map} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
 
-        <Stack.Screen name="Sky_Intro" component={Sky_Intro} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Content1" component={Sky_Content1} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Content2" component={Sky_Content2} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Content3" component={Sky_Content3} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Quiz1" component={Sky_Quiz1} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Result1" component={Sky_Result1} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Quiz2" component={Sky_Quiz2} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Result2" component={Sky_Result2} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Sky_Final" component={Sky_Final} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Sky_Intro" component={Sky_Intro} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Sky_Content1" component={Sky_Content1} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }} />
+        <Stack.Screen name="Sky_Content2" component={Sky_Content2} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }} />
+        <Stack.Screen name="Sky_Content3" component={Sky_Content3} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }} />
+        <Stack.Screen name="Sky_Quiz1" component={Sky_Quiz1} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Sky_Result1" component={Sky_Result1} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Sky_Quiz2" component={Sky_Quiz2} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Sky_Result2" component={Sky_Result2} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid }} />
+        <Stack.Screen name="Sky_Final" component={Sky_Final} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
 
-        <Stack.Screen name="Forest_Intro1" component={Forest_Intro1} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Forest_Intro2" component={Forest_Intro2} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Forest_Content" component={Forest_Content} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Forest_Quiz" component={Forest_Quiz} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Forest_Result" component={Forest_Result} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Forest_Final" component={Forest_Final} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Forest_Intro1" component={Forest_Intro1} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Forest_Intro2" component={Forest_Intro2} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Forest_Content" component={Forest_Content} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Forest_Quiz" component={Forest_Quiz} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Forest_Result" component={Forest_Result} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Forest_Final" component={Forest_Final} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
 
-        <Stack.Screen name="Water_Content" component={Water_Content} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Water_Quiz1" component={Water_Quiz1} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Water_Result1" component={Water_Result1} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Water_Quiz2" component={Water_Quiz2} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Water_Result2" component={Water_Result2} options={{ headerTransparent: true }} />
-        <Stack.Screen name="Water_Final" component={Water_Final} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Water_Content" component={Water_Content} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Water_Quiz1" component={Water_Quiz1} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Water_Result1" component={Water_Result1} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Water_Quiz2" component={Water_Quiz2} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Water_Result2" component={Water_Result2} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
+        <Stack.Screen name="Water_Final" component={Water_Final} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
 
-        <Stack.Screen name="Final" component={Final} options={{ headerTransparent: true }} />
+        <Stack.Screen name="Final" component={Final} options={{ headerTransparent: true, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

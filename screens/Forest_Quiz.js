@@ -1,8 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import LottieView from 'lottie-react-native';
-import React from "react";
+import React, { useState } from "react";
 import { Image, ImageBackground, Modal, StyleSheet, TouchableOpacity, View } from "react-native";
-import { useState } from "react/cjs/react.development";
 import CustomButton from "../components/CustomButton";
 import ExitButton from "../components/ExitButton";
 import ForestQuizBackground from "../components/ForestQuizBackground";

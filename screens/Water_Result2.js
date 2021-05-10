@@ -52,12 +52,12 @@ const Water_Result2 = () => {
             <View style={styles.backgroundContainer}>
                 <WaterResult2Background />
             </View>
-            <LottieView
+            {/* <LottieView
                 style={styles.nestedImage}
                 source={require('../assets/json/water_result2_fish.json')}
                 autoPlay={true}
                 loop={true}
-            />
+            /> */}
             <View style={styles.buttonContainer}>
                 <View style={styles.iconButtonContainer}>
                     <IconButton src={require('../assets/buttons/back_button.png')} target={() => { navigation.goBack() }} />
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
         width: wp('100%'),
         height: hp('100%'),
         alignItems: 'center',
+        justifyContent: 'flex-end'
     },
     backgroundContainer: {
         position: 'absolute',
@@ -136,9 +137,9 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         width: wp('80%'),
-        height: hp('10%'),
+        height: hp('15%'),
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-around'
     },
     iconButtonContainer: {
         width: wp('40%'),
