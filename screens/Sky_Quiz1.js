@@ -70,9 +70,11 @@ const Sky_Quiz1 = () => {
                         <Image style={styles.modalText} source={require('../assets/texts/exit_text.png')} />
                     </View>
                     <View style={styles.exitModalContent}>
-                        <Image
-                            style={styles.exitModalImage}
-                            source={require('../assets/backgrounds/modal_nested_background.png')}
+                        <LottieView
+                            style={styles.modalImage}
+                            source={require('../assets/json/popup.json')}
+                            autoPlay={true}
+                            loop={false}
                         />
                     </View>
                     <View style={styles.exitModalButtonContainer}>
@@ -216,7 +218,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         marginLeft: wp('25%'),
         marginTop: hp('25%'),
-        borderRadius: 45
+        borderRadius: 45,
+        alignItems: 'center'
     },
     textContainer: {
         width: wp('55%'),
@@ -228,7 +231,6 @@ const styles = StyleSheet.create({
         width: wp('40%'),
         height: hp('80%'),
         marginTop: hp('-15%'),
-        marginLeft: wp('-3%')
     },
     modalText: {
         width: wp('40%'),
@@ -293,11 +295,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('70%'),
-        height: hp('41.1%'),
+        width: wp('60%'),
+        height: hp('35.3%'),
         alignItems: 'center',
         justifyContent: 'center',
-        resizeMode: 'contain',
+        resizeMode: 'cover',
+        borderRadius: 50
     },
     draggableContainer: {
         width: wp('80%'),
@@ -318,7 +321,7 @@ const styles = StyleSheet.create({
         marginTop: hp('-3%')
     },
     draggableCar: {
-        width: wp('22%'),
+        width: wp('25%'),
         height: hp('10%'),
         alignItems: 'center',
         justifyContent: 'center',
@@ -364,12 +367,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     receiverImage: {
-        width: wp('32%'),
-        height: hp('22%')
+        width: wp('28%'),
+        height: hp('20%'),
+        resizeMode: 'cover'
     },
     draggableImage: {
-        width: wp('30%'),
-        height: hp('20%')
+        width: wp('25%'),
+        height: hp('15%'),
+        resizeMode: 'cover'
     },
     buttonContainer: {
         width: wp('80%'),

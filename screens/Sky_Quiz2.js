@@ -107,7 +107,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         marginLeft: wp('25%'),
         marginTop: hp('25%'),
-        borderRadius: 45
+        borderRadius: 45,
+        alignItems: 'center'
     },
     textContainer: {
         width: wp('55%'),
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
         width: wp('40%'),
         height: hp('80%'),
         marginTop: hp('-15%'),
-        marginLeft: wp('-3%')
+        alignItems: 'center'
     },
     modalText: {
         width: wp('40%'),
@@ -143,11 +144,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('75%'),
-        height: hp('43.3%'),
+        width: wp('70%'),
+        height: hp('40.4%'),
         alignItems: 'center',
         justifyContent: 'center',
-        resizeMode: 'contain',
+        resizeMode: 'cover',
+        borderRadius: 50
     },
     blueGrayContainer: {
         flexDirection: 'row',
@@ -160,32 +162,38 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     colorBlack: {
-        width: wp('21%'),
+        width: wp('20.7%'),
         height: hp('10%'),
+        resizeMode: 'cover',
         marginTop: hp('3%')
     },
     colorBlue: {
-        width: wp('21%'),
+        width: wp('20.7%'),
         height: hp('10%'),
+        resizeMode: 'cover',
         marginRight: wp('8%')
     },
     colorGray: {
-        width: wp('21%'),
-        height: hp('10%')
+        width: wp('20.7%'),
+        height: hp('10%'),
+        resizeMode: 'cover'
     },
     colorBlack_pressed: {
         width: wp('18%'),
         height: hp('9%'),
-        marginTop: hp('3%')
+        marginTop: hp('3%'),
+        resizeMode: 'cover'
     },
     colorBlue_pressed: {
         width: wp('18%'),
         height: hp('9%'),
-        marginRight: wp('8%')
+        marginRight: wp('8%'),
+        resizeMode: 'cover'
     },
     colorGray_pressed: {
         width: wp('18%'),
-        height: hp('9%')
+        height: hp('9%'),
+        resizeMode: 'cover'
     },
     buttonContainer: {
         width: wp('80%'),

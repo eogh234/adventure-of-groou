@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     nestedImage: {
         width: wp('53.8%'),
         height: hp('35%'),
+        resizeMode: 'cover'
     },
     buttonContainer: {
         width: wp('80%'),

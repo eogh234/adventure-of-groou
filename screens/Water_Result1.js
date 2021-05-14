@@ -62,6 +62,10 @@ const Water_Result1 = () => {
                 />
             </View>
             <View style={styles.buttonContainer}>
+                <View style={styles.iconButtonContainer}>
+                    <IconButton src={require('../assets/buttons/back_button.png')} target={() => { navigation.goBack() }} />
+                    <IconButton src={require('../assets/buttons/home_button.png')} target={() => { setModalVisible(true) }} />
+                </View>
                 <View style={styles.nextButtonContainer}>
                     <CustomButton
                         src={require('../assets/buttons/good_button.png')}

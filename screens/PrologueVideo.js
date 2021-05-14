@@ -15,7 +15,7 @@ const PrologueVideo = () => {
             setIsFirst(false)
         }
         if (!isFirst && !status.isPlaying) {
-            navigation.navigate('Main')
+            navigation.navigate('Intro')
         }
     }, [status])
     return (

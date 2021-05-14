@@ -128,7 +128,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         marginLeft: wp('25%'),
         marginTop: hp('25%'),
-        borderRadius: 45
+        borderRadius: 45,
+        alignItems: 'center'
     },
     textContainer: {
         width: wp('55%'),
@@ -140,7 +141,6 @@ const styles = StyleSheet.create({
         width: wp('40%'),
         height: hp('80%'),
         marginTop: hp('-15%'),
-        marginLeft: wp('-3%')
     },
     modalText: {
         width: wp('40%'),
@@ -203,11 +203,13 @@ const styles = StyleSheet.create({
     },
     button: {
         width: wp('28%'),
-        height: hp('20%')
+        height: hp('20%'),
+        resizeMode: 'cover'
     },
     buttonPressed: {
         width: wp('25%'),
-        height: hp('15%')
+        height: hp('15%'),
+        resizeMode: 'cover'
     },
     buttonContainer: {
         width: wp('80%'),

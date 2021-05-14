@@ -11,7 +11,7 @@ const OnBoarding = () => {
         <View style={styles.container}>
             <TouchableOpacity
                 style={styles.backgroundContainer}
-                onPress={() => { navigation.navigate('PrologueVideo') }}
+                onPress={() => { navigation.navigate('Intro') }}
                 activeOpacity={1}
             >
                 <LottieView
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: 'black'
     },
     backgroundContainer: {
         position: 'absolute',

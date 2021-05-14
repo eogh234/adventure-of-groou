@@ -127,8 +127,9 @@ const styles = StyleSheet.create({
         marginTop: hp('40%')
     },
     nestedImage: {
-        width: wp('54%'),
+        width: wp('54.3%'),
         height: hp('35%'),
+        resizeMode: 'contain'
     },
     buttonContainer: {
         width: wp('85%'),

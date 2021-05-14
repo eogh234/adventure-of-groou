@@ -136,15 +136,15 @@ const styles = StyleSheet.create({
         height: hp('10%')
     },
     nestedContainer: {
-        width: wp('60%'),
-        height: hp('35%'),
+        width: wp('52%'),
+        height: hp('34%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: hp('25%')
+        marginTop: hp('25%'),
     },
     nestedImage: {
-        width: wp('53.8%'),
-        height: hp('35%'),
+        width: wp('52%'),
+        height: hp('34%'),
         resizeMode: 'contain'
     },
     buttonContainer: {

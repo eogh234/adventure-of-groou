@@ -59,7 +59,7 @@ const Water_Final = () => {
                 <View style={styles.nextButtonContainer}>
                     <NextButton
                         src={require('../assets/buttons/next_area_button_enabled.png')}
-                        target={() => { navigation.navigate('Final_Map') }}
+                        target={() => { navigation.navigate('Final') }}
                     />
                 </View>
                 <View style={styles.headerContainer}>
@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     nestedImage: {
         width: wp('53.8%'),
         height: hp('35%'),
+        resizeMode: 'cover'
     },
     buttonContainer: {
         width: wp('80%'),

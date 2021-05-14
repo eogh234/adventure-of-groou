@@ -51,9 +51,6 @@ const Sky_Result1 = () => {
             <View style={styles.backgroundContainer}>
                 <SkyResult1Background />
             </View>
-            {/* <View style={styles.textContatiner}>
-                <Image style={styles.textImage} source={require('../assets/texts/sky_quiz_1.png')} />
-            </View> */}
             <View style={styles.buttonContainer}>
                 <View style={styles.iconButtonContainer}>
                     <IconButton src={require('../assets/buttons/back_button.png')} target={() => { navigation.goBack() }} />
