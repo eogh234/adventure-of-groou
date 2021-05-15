@@ -11,7 +11,7 @@ const OnBoarding = () => {
         <View style={styles.container}>
             <TouchableOpacity
                 style={styles.backgroundContainer}
-                onPress={() => { navigation.navigate('Intro') }}
+                onPress={() => { navigation.navigate('PrologueVideo') }}
                 activeOpacity={1}
             >
                 <LottieView

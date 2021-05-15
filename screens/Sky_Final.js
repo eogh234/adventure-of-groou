@@ -92,16 +92,16 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     modalHeaderContainer: {
-        width: wp('55%'),
+        width: wp('45%'),
         alignItems: 'flex-end',
-        marginBottom: hp('12%')
+        justifyContent: 'center',
     },
     modalBackgroundContainer: {
         width: wp('55%'),
         height: hp('70%'),
         backgroundColor: 'white',
         marginLeft: wp('25%'),
-        marginTop: hp('15%'),
+        marginTop: hp('10%'),
         borderRadius: 45,
         alignItems: 'center',
         justifyContent: 'center'
@@ -113,9 +113,10 @@ const styles = StyleSheet.create({
         marginTop: hp('-15%')
     },
     modalImage: {
-        width: wp('42.3%'),
-        height: hp('27.5%'),
-        marginTop: hp('-5%')
+        width: wp('46%'),
+        height: hp('28%'),
+        marginTop: hp('-10%'),
+        resizeMode: 'contain'
     },
     modalText: {
         width: wp('40%'),
@@ -124,6 +125,8 @@ const styles = StyleSheet.create({
     modalButtonContainer: {
         width: wp('30%'),
         height: hp('20%'),
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     headerContainer: {
         width: wp('80%'),
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
         marginTop: hp('25%'),
     },
     nestedImage: {
-        width: wp('52%'),
+        width: wp('56.2%'),
         height: hp('34%'),
         resizeMode: 'contain'
     },

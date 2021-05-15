@@ -7,6 +7,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "../compon
 import WaterResult2Background from "../components/WaterResult2Background";
 import LottieView from 'lottie-react-native';
 import ExitButton from "../components/ExitButton";
+import ModalButton from "../components/ModalButton";
 
 const Water_Result2 = () => {
     const navigation = useNavigation();
@@ -21,11 +22,6 @@ const Water_Result2 = () => {
                 visible={modalVisible}
             >
                 <View style={styles.modalBackgroundContainer}>
-                    <View style={styles.modalHeaderContainer}>
-                        <ExitButton
-                            src={require('../assets/icons/modal_exit.png')}
-                            target={() => { setModalVisible(false) }} />
-                    </View>
                     <View style={styles.textContainer}>
                         <Image style={styles.modalText} source={require('../assets/texts/exit_text.png')} />
                     </View>
@@ -36,12 +32,12 @@ const Water_Result2 = () => {
                         />
                     </View>
                     <View style={styles.modalButtonContainer}>
-                        <CustomButton
+                        <ModalButton
                             style={styles.exitButton}
                             src={require('../assets/buttons/exit_button.png')}
                             target={() => { setModalVisible(false); navigation.navigate("OnBoarding") }}
                         />
-                        <CustomButton
+                        <ModalButton
                             style={styles.continueButton}
                             src={require('../assets/buttons/continue_button.png')}
                             target={() => { setModalVisible(false) }}
@@ -91,16 +87,16 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     modalHeaderContainer: {
-        width: wp('55%'),
+        width: wp('45%'),
         alignItems: 'flex-end',
-        marginBottom: hp('12%')
+        justifyContent: 'center',
     },
     modalBackgroundContainer: {
         width: wp('55%'),
         height: hp('70%'),
         backgroundColor: 'white',
         marginLeft: wp('25%'),
-        marginTop: hp('15%'),
+        marginTop: hp('10%'),
         borderRadius: 45,
         alignItems: 'center',
         justifyContent: 'center'
@@ -112,9 +108,10 @@ const styles = StyleSheet.create({
         marginTop: hp('-15%')
     },
     modalImage: {
-        width: wp('42.3%'),
-        height: hp('27.5%'),
-        marginTop: hp('-5%')
+        width: wp('46%'),
+        height: hp('28%'),
+        marginTop: hp('-10%'),
+        resizeMode: 'contain'
     },
     modalText: {
         width: wp('40%'),
@@ -123,6 +120,8 @@ const styles = StyleSheet.create({
     modalButtonContainer: {
         width: wp('30%'),
         height: hp('20%'),
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     nestedContainer: {
         width: wp('80%'),

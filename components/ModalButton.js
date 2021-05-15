@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "./Responsive";
 
-const ExitButton = (props) => {
+const ModalButton = (props) => {
     const [isPress, setIsPress] = useState(false);
 
     return (
@@ -24,18 +24,18 @@ const ExitButton = (props) => {
 const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     buttonImage: {
-        width: wp('8%'),
-        height: hp('10%'),
+        width: wp('25%'),
+        height: hp('5%'),
         resizeMode: 'contain'
     },
     buttonImagePressed: {
-        width: wp('4%'),
-        height: hp('5%'),
+        width: wp('20%'),
+        height: hp('4%'),
         resizeMode: 'contain'
     },
 })
 
-export default ExitButton;
+export default ModalButton;

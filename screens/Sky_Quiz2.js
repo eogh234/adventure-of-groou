@@ -27,11 +27,6 @@ const Sky_Quiz2 = () => {
                     Alert.alert('Modal has been closed.');
                 }}>
                 <View style={styles.modalBackgroundContainer}>
-                    <View style={styles.modalHeaderContainer}>
-                        <ExitButton
-                            src={require('../assets/icons/modal_exit.png')}
-                            target={() => { setModalVisible(false) }} />
-                    </View>
                     <View style={styles.textContainer}>
                         <Image style={styles.modalText} source={require('../assets/texts/retry_text.png')} />
                     </View>
@@ -98,36 +93,78 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalHeaderContainer: {
-        width: wp('55%'),
-        alignItems: 'flex-end'
+        width: wp('45%'),
+        alignItems: 'flex-end',
+        justifyContent: 'center',
     },
     modalBackgroundContainer: {
         width: wp('55%'),
-        height: hp('60%'),
+        height: hp('70%'),
         backgroundColor: 'white',
         marginLeft: wp('25%'),
-        marginTop: hp('25%'),
+        marginTop: hp('10%'),
         borderRadius: 45,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     textContainer: {
         width: wp('55%'),
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: hp('-5%')
     },
     modalImage: {
-        width: wp('40%'),
-        height: hp('80%'),
-        marginTop: hp('-15%'),
-        alignItems: 'center'
+        width: wp('46%'),
+        height: hp('85%'),
+        marginTop: hp('-15%')
     },
     modalText: {
         width: wp('40%'),
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        marginTop: hp('-10%')
     },
     modalButtonContainer: {
-        marginTop: hp('-45%')
+        width: wp('30%'),
+        height: hp('20%'),
+        marginTop: hp('-45%'),
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    exitModalHeaderContainer: {
+        width: wp('45%'),
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+    },
+    exitModalBackgroundContainer: {
+        width: wp('55%'),
+        height: hp('70%'),
+        backgroundColor: 'white',
+        marginLeft: wp('25%'),
+        marginTop: hp('10%'),
+        borderRadius: 45,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    exitTextContainer: {
+        width: wp('55%'),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: hp('-10%')
+    },
+    exitModalImage: {
+        width: wp('46%'),
+        height: hp('28%'),
+        marginTop: hp('-10%'),
+        resizeMode: 'contain'
+    },
+    exitModalText: {
+        width: wp('40%'),
+        resizeMode: 'contain'
+    },
+    exitModalButtonContainer: {
+        width: wp('30%'),
+        height: hp('15%'),
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     backgroundContainer: {
         position: 'absolute',
@@ -144,12 +181,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     nestedImage: {
-        width: wp('70%'),
-        height: hp('40.4%'),
+        width: wp('74.5%'),
+        height: hp('40%'),
         alignItems: 'center',
         justifyContent: 'center',
-        resizeMode: 'cover',
-        borderRadius: 50
+        resizeMode: 'contain',
     },
     blueGrayContainer: {
         flexDirection: 'row',
@@ -162,38 +198,38 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     colorBlack: {
-        width: wp('20.7%'),
+        width: wp('22.5%'),
         height: hp('10%'),
-        resizeMode: 'cover',
+        resizeMode: 'contain',
         marginTop: hp('3%')
     },
     colorBlue: {
-        width: wp('20.7%'),
+        width: wp('22.5%'),
         height: hp('10%'),
-        resizeMode: 'cover',
+        resizeMode: 'contain',
         marginRight: wp('8%')
     },
     colorGray: {
-        width: wp('20.7%'),
+        width: wp('22.5%'),
         height: hp('10%'),
-        resizeMode: 'cover'
+        resizeMode: 'contain'
     },
     colorBlack_pressed: {
-        width: wp('18%'),
+        width: wp('20.5%'),
         height: hp('9%'),
         marginTop: hp('3%'),
-        resizeMode: 'cover'
+        resizeMode: 'contain'
     },
     colorBlue_pressed: {
-        width: wp('18%'),
+        width: wp('20.5%'),
         height: hp('9%'),
         marginRight: wp('8%'),
-        resizeMode: 'cover'
+        resizeMode: 'contain'
     },
     colorGray_pressed: {
-        width: wp('18%'),
+        width: wp('20.5%'),
         height: hp('9%'),
-        resizeMode: 'cover'
+        resizeMode: 'contain'
     },
     buttonContainer: {
         width: wp('80%'),
