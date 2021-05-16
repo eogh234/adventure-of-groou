@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import { Video } from "expo-av";
 import React, { useEffect, useRef, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -10,21 +10,13 @@ import {
 const EpilogueVideo = () => {
   const navigation = useNavigation();
   const video = useRef(null);
-  const [status, setStatus] = useState({});
-  const [isFirst, setIsFirst] = useState(true);
-
-  useEffect(() => {
-    if (isFirst) {
-      setIsFirst(false);
-    }
-    if (!isFirst && !status.isPlaying) {
-      navigation.navigate("OnBoarding");
-    }
-  }, [status]);
 
   return (
     <View style={styles.container}>
-      <View style={styles.videoContainer}>
+      <TouchableOpacity
+        style={styles.videoContainer}
+        onPress={() => { navigation.navigate('OnBoarding') }}
+        activeOpacity={0.5}>
         <Video
           ref={video}
           style={styles.video}
@@ -34,9 +26,8 @@ const EpilogueVideo = () => {
           isMuted={false}
           volume={1.0}
           shouldPlay
-          onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
