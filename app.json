@@ -26,6 +26,9 @@
       },
       "package": "com.eogh234.adventureofgroou"
     },
+    "packagerOpts": {
+      "nonPersistent": true
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     }
