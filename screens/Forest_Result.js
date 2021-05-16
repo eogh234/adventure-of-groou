@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
+import { Audio } from "expo-av";
 import { Image, ImageBackground, Modal, StyleSheet, View } from "react-native";
 import CustomButton from "../components/CustomButton";
 import IconButton from "../components/IconButton";
@@ -14,6 +15,15 @@ import ModalButton from "../components/ModalButton";
 const Forest_Result = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
+
+  async function playSound() {
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/correct_sound.wav")
+    );
+    await sound.setIsLoopingAsync(false);
+    await sound.playAsync();
+  }
+  playSound();
 
   return (
     <View style={styles.container}>

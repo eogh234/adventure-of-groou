@@ -69,7 +69,7 @@ const Sky_Content = () => {
       <View style={styles.nestedContainer}>
         <ImageBackground
           style={styles.nestedImage}
-          source={require("../assets/json/sky_dust.gif")}
+          source={require("../assets/backgrounds/sky_dust.png")}
         />
       </View>
       <View style={styles.buttonContainer}>
@@ -163,16 +163,16 @@ const styles = StyleSheet.create({
     height: hp("50%"),
     alignItems: "center",
     justifyContent: "center",
-    marginTop: hp("20%"),
+    marginTop: hp("25%"),
   },
   nestedImage: {
-    width: wp("75%"),
-    height: hp("50%"),
+    width: wp("70%"),
+    height: hp("35%"),
   },
   buttonContainer: {
     width: wp("90%"),
     height: hp("10%"),
-    marginTop: hp("8%"),
+    marginTop: hp("3%"),
     marginLeft: wp("-6%"),
     flexDirection: "row",
     justifyContent: "space-around",

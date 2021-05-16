@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
+import { Audio } from "expo-av";
 import {
   Image,
   ImageBackground,
