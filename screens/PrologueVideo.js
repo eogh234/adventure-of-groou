@@ -29,7 +29,7 @@ const PrologueVideo = () => {
           style={styles.video}
           source={require("../assets/videos/adventure_prologue.mp4")}
           resizeMode={Video.RESIZE_MODE_COVER}
-          rate={4.0}
+          rate={1.0}
           isMuted={false}
           volume={1.0}
           shouldPlay
