@@ -114,24 +114,23 @@ const styles = StyleSheet.create({
   },
   modalBackgroundContainer: {
     width: wp("55%"),
-    height: hp("70%"),
+    height: hp("60%"),
     backgroundColor: "white",
-    marginLeft: wp("25%"),
-    marginTop: hp("10%"),
+    marginLeft: wp("23%"),
+    marginTop: hp("15%"),
     borderRadius: 45,
     alignItems: "center",
     justifyContent: "center",
   },
   textContainer: {
-    width: wp("55%"),
+    marginTop: hp("4%"),
     alignItems: "center",
     justifyContent: "center",
-    marginTop: hp("-15%"),
   },
   modalImage: {
     width: wp("46%"),
     height: hp("28%"),
-    marginTop: hp("-10%"),
+    marginTop: hp("-1%"),
     resizeMode: "contain",
   },
   modalText: {
@@ -141,6 +140,7 @@ const styles = StyleSheet.create({
   modalButtonContainer: {
     width: wp("30%"),
     height: hp("20%"),
+    marginTop: hp("-2%"),
     alignItems: "center",
     justifyContent: "center",
   },

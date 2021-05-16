@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     height: hp("10%"),
     marginTop: hp("79%"),
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
   },
   iconButtonContainer: {
     width: wp("40%"),
