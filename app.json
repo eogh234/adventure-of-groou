@@ -14,7 +14,8 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "**/*",
+      "assets/videos/*"
     ],
     "ios": {
       "supportsTablet": true
@@ -27,7 +28,7 @@
       "package": "com.eogh234.adventureofgroou"
     },
     "packagerOpts": {
-      "nonPersistent": true
+      "nonPersistent": true,
     },
     "web": {
       "favicon": "./assets/favicon.png"
